@@ -143,7 +143,6 @@ fun TournamentItem(tournament: Tournament, navController: NavController) {
         }
     }
 
-    // Przycisk do usuwania turnieju
     Box(modifier = Modifier.fillMaxWidth(), contentAlignment = Alignment.Center) { // Wyśrodkowujemy przycisk
         Button(onClick = { deleteTournament(tournament.name, navController) }) {
             Text("Usuń turniej")

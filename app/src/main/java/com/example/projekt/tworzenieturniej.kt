@@ -77,7 +77,6 @@ class NotificationReceiver : BroadcastReceiver() {
     override fun onReceive(context: Context, intent: Intent) {
         val tournamentName = intent.getStringExtra("tournamentName")
 
-        // Utwórz kanał powiadomień dla Android 8.0 i nowszych
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             val name = "Tournament Reminder Channel"
             val descriptionText = "Channel for Tournament Reminder"
@@ -90,20 +89,17 @@ class NotificationReceiver : BroadcastReceiver() {
             notificationManager.createNotificationChannel(channel)
         }
 
-        // Utwórz powiadomienie
         val builder = NotificationCompat.Builder(context, "tournament_reminder")
             .setSmallIcon(R.drawable.ic_launcher_foreground)
             .setContentTitle("Przypomnienie o turnieju")
             .setContentText("Turniej $tournamentName zaczyna się za tydzień!")
             .setPriority(NotificationCompat.PRIORITY_DEFAULT)
 
-        // Wyświetl powiadomienie
         if (ContextCompat.checkSelfPermission(context, Manifest.permission.ACCESS_NOTIFICATION_POLICY) == PackageManager.PERMISSION_GRANTED) {
             with(NotificationManagerCompat.from(context)) {
                 notify(0, builder.build())
             }
         } else {
-            // Prośba o uprawnienia lub obsługa sytuacji, gdy uprawnienia nie są dostępne
         }
     }
 }
@@ -128,17 +124,14 @@ fun scheduleNotification(context: Context, startDate: String, tournamentName: St
         val alarmManager = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S && !alarmManager.canScheduleExactAlarms()) {
-            // Prośba o uprawnienie do ustawiania dokładnych alarmów
         } else {
             alarmManager.setExact(AlarmManager.RTC_WAKEUP, calendar.timeInMillis, pendingIntent)
         }
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S && !alarmManager.canScheduleExactAlarms()) {
-            // Prośba o uprawnienie do ustawiania dokładnych alarmów
         } else {
             alarmManager.setExact(AlarmManager.RTC_WAKEUP, calendar.timeInMillis, pendingIntent)
         }
     } else {
-        // Obsłuż sytuację, gdy startDate jest pusty
     }
 }
 @Composable
@@ -171,7 +164,6 @@ fun CreateTournamentScreen(navController: NavController) {
             .padding(16.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        // Pola do wprowadzania danych
         OutlinedTextField(
             value = tournamentName,
             onValueChange = { tournamentName = it },

@@ -60,7 +60,7 @@ fun Bilety(ticketCount: Int) {
                 }
                 Spacer(modifier = Modifier.height(16.dp))
 
-                Button(onClick = { /* kupowanie*/ }) {
+                Button(onClick = {  }) {
                     Text("Kup")
                 }
             }
