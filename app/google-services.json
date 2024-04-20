@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "328123748110",
+    "firebase_url": "https://projektmobilki-70afa-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "projektmobilki-70afa",
+    "storage_bucket": "projektmobilki-70afa.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:328123748110:android:91aeeb906d9d6375e0115f",
+        "android_client_info": {
+          "package_name": "com.example.projekt"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA59Q-F797wkTMXsdYcN5DJJ8J9JpA62fY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
